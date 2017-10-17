@@ -1,0 +1,64 @@
+<?php
+
+require(__DIR__ . '/cli/Cli.php');
+require(__DIR__ . '/cli/BaseConsole.php');
+require(__DIR__ . '/cli/Migration.php');
+
+use cli\Cli;
+use cli\Migration;
+use cli\BaseConsole as Console;
+
+// call cli class
+$cli = new Cli();
+$coreCommands = $cli->coreCommands();
+
+// call console helper class
+$console = new Console();
+
+// get request
+$argv = $_SERVER['argv'];
+$argc = $_SERVER['argc'];
+$action = isset($argv[1]) ? $argv[1] : null;
+
+if($action) {
+	switch ($action) {
+		case 'migrate' || 'migrate/up':
+			// $console->stdout('do migration');
+			$migrate = new Migration();
+			$migrate->up();
+			break;
+		case 'migrate/redo':
+			// $console->stdout('do migration');
+			$migrate = new Migration();
+			$migrate->redo();
+			break;
+		case 'init':
+			$console->stdout("Please insert database configuration");
+			$console->break();
+			$dbName = $console->input("Name : ");
+			$dbPassword = $console->input("Password : ");
+			$console->break();
+			$console->stdout("Database Name is $dbName");
+			$console->break();
+			$console->stdout("Database Password is $dbPassword");
+			$console->break();
+			$console->break();
+			$console->stdout("do create database", Console::FG_YELLOW);
+			$console->break();
+			$console->stdout("database has been create", Console::FG_GREEN);
+			$console->break();
+			break;
+
+		default:
+			$console->stdout('do action');
+			break;
+	}
+} else {
+	$console->stdout('show help');
+}
+
+// $content = file_get_contents('config.php');
+// var_dump($content);
+
+
+?>

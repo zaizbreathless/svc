@@ -15,9 +15,9 @@ include('../config.php');
     padding-top: 120px;
     padding-bottom: 40px;
     background-color: #eee;
-  
+
   }
-  .btn 
+  .btn
   {
    outline:0;
    border:none;
@@ -190,16 +190,16 @@ $ipaddress = $_SERVER['REMOTE_ADDR'];
 $to = 'zaizbreathless@yahoo.com.my';
 $subject = 'Security Login Alert';
 $from = 'zaizbreathless@gmail.com';
- 
+
 // To send HTML mail, the Content-type header must be set
 $headers  = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
- 
+
 // Create email headers
 $headers .= 'From: '.$from."\r\n".
     'Reply-To: '.$from."\r\n" .
     'X-Mailer: PHP/' . phpversion();
- 
+
 // Compose a simple HTML email message
 $message = '<html><body>';
 $message .= 'Hi Admin<br><br>';
@@ -217,7 +217,7 @@ if(mail($to, $subject, $message, $headers)){
                 <strong>Disahkan!</strong> Anda berjaya dan bersedia untuk mengakses sistem dalam masa 3 saat.
             </div>
 		</div>
-		</p>	
+		</p>
 		 ';
 } else{
 }
@@ -238,7 +238,7 @@ if(mail($to, $subject, $message, $headers)){
                 <strong>ID atau KATA LALUAN salah!</strong> Sila masukkan ID dan Kata Laluan yang betul atau hubungi ADMIN untuk bantuan.
             </div>
     </div>
-    </p>  
+    </p>
      ';
 		}
 	}
@@ -262,13 +262,13 @@ if(mail($to, $subject, $message, $headers)){
 		<input type="password" class="form-control" placeholder="Kata Laluan" name="password" id="password" required>
 		<button class="btn btn-lg btn-primary btn-block" type="submit">Masuk</button>
 	</form>
-    
-    <div align="center"><font color="#FFFFFF">Viz Tech &COPY; 2016 - <?php echo date(Y) ?><br>
+
+    <div align="center"><font color="#FFFFFF">Viz Tech &COPY; 2016 - <?php echo date('Y') ?><br>
 <?php
 
 $user_agent     =   $_SERVER['HTTP_USER_AGENT'];
 
-function getOS() { 
+function getOS() {
 
     global $user_agent;
 
@@ -298,13 +298,13 @@ function getOS() {
                             '/webos/i'              =>  'Mobile'
                         );
 
-    foreach ($os_array as $regex => $value) { 
+    foreach ($os_array as $regex => $value) {
 
         if (preg_match($regex, $user_agent)) {
             $os_platform    =   $value;
         }
 
-    }   
+    }
 
     return $os_platform;
 
@@ -328,7 +328,7 @@ function getBrowser() {
                             '/mobile/i'     =>  'Handheld Browser'
                         );
 
-    foreach ($browser_array as $regex => $value) { 
+    foreach ($browser_array as $regex => $value) {
 
         if (preg_match($regex, $user_agent)) {
             $browser    =   $value;
@@ -352,7 +352,7 @@ print_r($device_details);
 
 ?>
     </div>
-    
+
 <?php
 	}
 }
