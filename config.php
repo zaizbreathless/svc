@@ -11,8 +11,8 @@ can work correctly.
 ******************************************************/
 
 //We log to the DataBase
-mysql_connect('localhost', 'svc-v4', '4e2usaty8');
-mysql_select_db('faisal_svc-v4');
+mysql_connect('localhost', 'root', '');
+mysql_select_db('svc');
 
 //Webmaster Email
 // $mail_webmaster = 'mdkhussairiee.a@gmail.com';
@@ -44,9 +44,9 @@ $design = 'default';
 <?php
 //load database connection
     $host = "";
-    $user = "svc-v4";
-    $password = "4e2usaty8";
-    $database_name = "faisal_svc-v4";
+    $user = "root";
+    $password = "";
+    $database_name = "svc";
     $pdo = new PDO("mysql:host=$host;dbname=$database_name", $user, $password, array(
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ));
@@ -56,9 +56,9 @@ $design = 'default';
 <?php
 
 $host = "";
-$username = "svc-v4";
-$password = "4e2usaty8";
-$database = "faisal_svc-v4";
+$username = "root";
+$password = "";
+$database = "svc";
 $connect = new PDO("mysql: host=$host; dbname=$database", $username, $password);
 
 
@@ -67,15 +67,15 @@ $connect = new PDO("mysql: host=$host; dbname=$database", $username, $password);
 <?php
 
 $host = "localhost";
-$username = "svc-v4";
-$password = "4e2usaty8";
-$database = "faisal_svc-v4";
+$username = "root";
+$password = "";
+$database = "svc";
 
 try {
-        $connect = new PDO("mysql: host=$host; dbname=$database", $username, $password);  
-    }  
-catch(PDOException $e) {  
+        $connect = new PDO("mysql: host=$host; dbname=$database", $username, $password);
+    }
+catch(PDOException $e) {
         echo "We are experiencing database connection problems. Sorry for the trouble.<br>";
-    } 
+    }
 
 ?>
